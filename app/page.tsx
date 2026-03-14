@@ -1,3 +1,4 @@
+//app/page.tsx
 import { Header } from '@/components/portal/Header'
 import { Hero } from '@/components/portal/Hero'
 import { ServiciosDestacados } from '@/components/portal/ServiciosDestacados'
@@ -8,7 +9,8 @@ export default function HomePage() {
   return (
     <>
       <Header />
-      <main id="contenido-principal" tabIndex={-1}>
+      {/* Añadimos overflow-visible para asegurar que la IA no se corte */}
+      <main id="contenido-principal" className="index-main-wrapper" style={{ overflow: 'visible' }}>
         <ClientLayout 
           hero={<Hero />}
           servicios={<ServiciosDestacados />}
