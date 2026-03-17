@@ -1,3 +1,4 @@
+//components/portal/Gobernador.tsx
 import { ExternalLink, Quote } from 'lucide-react'
 
 export function Gobernador() {
