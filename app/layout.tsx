@@ -4,6 +4,8 @@ import { Inter, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 import '../styles/index.css'
+import '../styles/noticias.css'
+import '../styles/noticias-slug.css'
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -66,9 +68,6 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${inter.variable} ${geistMono.variable}`}>
       <body className="font-sans antialiased min-h-screen flex flex-col">
-        <a href="#contenido-principal" className="skip-link">
-          Saltar al contenido principal
-        </a>
         {children}
         <Analytics debug={false} />
       </body>
