@@ -1,7 +1,7 @@
 //components/portal/Header.tsx  
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import Link from 'next/link'
 import { Menu, X, Search, User, ChevronDown, Phone, Mail, Globe } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -43,6 +43,18 @@ const navItems = [
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null)
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null)
+
+  const handleMouseEnter = (label: string) => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current)
+    setActiveSubmenu(label)
+  }
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setActiveSubmenu(null)
+    }, 150)
+  }
 
   return (
     <header className="index-header-wrapper">
@@ -87,9 +99,9 @@ export function Header() {
               {navItems.map((item) => (
                 <div 
                   key={item.label}
-                  className="index-nav-item"
-                  onMouseEnter={() => item.submenu && setActiveSubmenu(item.label)}
-                  onMouseLeave={() => setActiveSubmenu(null)}
+                  className="index-nav-item relative h-full flex items-center"
+                  onMouseEnter={() => item.submenu && handleMouseEnter(item.label)}
+                  onMouseLeave={handleMouseLeave}
                 >
                   <Link href={item.href} className="index-nav-anchor">
                     {item.label}
