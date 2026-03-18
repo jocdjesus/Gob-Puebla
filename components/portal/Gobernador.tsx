@@ -44,12 +44,12 @@ export function Gobernador() {
             </p>
 
             <div className="index-gob-actions">
-              <a href="/gobierno/gobernador" className="index-btn-white-solid">
+              <a href="https://gobernador.puebla.gob.mx/index.php/biografia" className="index-btn-white-solid">
                 Conocer más sobre el Gobernador
               </a>
               
               <a 
-                href="https://puebla.gob.mx" 
+                href="https://gobernador.puebla.gob.mx/index.php" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="index-btn-outline-custom"
