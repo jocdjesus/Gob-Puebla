@@ -36,7 +36,7 @@ const navItems = [
       { label: 'Participación', href: '/participacion' },
     ]
   },
-  { label: 'Noticias', href: '/noticias' },
+  { label: 'Noticias', href: '/Noticias' },
   { label: 'Transparencia', href: '/transparencia' },
 ]
 
