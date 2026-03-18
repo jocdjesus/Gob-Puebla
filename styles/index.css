@@ -12,6 +12,26 @@
   --index-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
 
+:root {
+  --puebla-navy: #0a192f;
+  --puebla-gold: #b39359;
+  --puebla-accent: #1e3a8a;
+  --text-main: #1a1a1a;
+  --text-body: #4b5563;
+  --bg-soft: #fcfcfd;
+  --white: #ffffff;
+  --border: #e2e8f0;
+  --shadow-premium: 0 20px 25px -5px rgba(0, 0, 0, 0.04), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: all 0.2s ease;
+  --radius-lg: 24px;
+  --radius-md: 16px;
+  --radius-sm: 12px;
+  --container-max: 1200px;
+  --container-padding: 2rem;
+}
+
 .index-header-wrapper {
   position: sticky;
   top: 0;
@@ -253,47 +273,12 @@
   text-decoration: none;
 }
 
-
-
 .index-hero-section {
   position: relative;
   background-color: var(--index-secondary);
   color: var(--index-secondary-foreground);
   overflow: visible;
   transition: z-index 0.3s ease;
-}
-
-.index-hero-pattern {
-  position: absolute;
-  inset: 0;
-  opacity: 0.1;
-  pointer-events: none;
-}
-
-.index-hero-blob-1 {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 24rem;
-  height: 24rem;
-  background-color: var(--index-primary);
-  opacity: 0.3;
-  border-radius: 9999px;
-  filter: blur(64px);
-  transform: translate(50%, -50%);
-}
-
-.index-hero-blob-2 {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 20rem;
-  height: 20rem;
-  background-color: #bc955c;
-  opacity: 0.3;
-  border-radius: 9999px;
-  filter: blur(64px);
-  transform: translate(-50%, 50%);
 }
 
 .index-hero-container {
@@ -1525,9 +1510,17 @@
   }
 }
 
+/* Cambio principal: de 4 columnas a 3 columnas en pantallas grandes */
 @media (min-width: 1024px) {
   .index-apps-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Opcional: para pantallas muy grandes (1400px o más) podrías mantener 3 columnas o ajustar */
+@media (min-width: 1280px) {
+  .index-apps-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 

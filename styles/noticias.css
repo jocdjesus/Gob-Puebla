@@ -97,7 +97,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  max-width: 56rem;
+  max-width: 73rem;
 }
 
 .noticias-scroll-btn {
@@ -357,3 +357,91 @@
 }
 
 
+/* Botón de inicio */
+.noticias-home-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #0f172a;
+  color: white;
+  font-weight: 600;
+  font-size: 0.875rem;
+  border-radius: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.noticias-home-button:hover {
+  background-color: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.3);
+}
+
+.noticias-home-button:active {
+  transform: translateY(0);
+}
+
+.noticias-home-button svg {
+  transition: transform 0.3s ease;
+}
+
+.noticias-home-button:hover svg {
+  transform: scale(1.1);
+}
+
+/* Ajuste responsive para el botón */
+@media (max-width: 1024px) {
+  .noticias-home-button {
+    padding: 0.625rem 1rem;
+    font-size: 0.75rem;
+  }
+  
+  .noticias-home-button span {
+    display: none; /* Oculta el texto en móvil */
+  }
+  
+  .noticias-home-button {
+    padding: 0.75rem;
+    border-radius: 9999px; /* Hace el botón circular en móvil */
+    justify-content: center;
+  }
+  
+  .noticias-home-button svg {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+}
+
+/* Ajuste del layout para el nuevo botón */
+.noticias-top-row {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 640px) {
+  .noticias-top-row {
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+}
+
+/* Ajuste del search box para que no se comprima */
+.noticias-search-box {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  min-width: 300px;
+}
+
+@media (min-width: 1024px) {
+  .noticias-search-box {
+    max-width: 24rem;
+  }
+}

@@ -14,7 +14,8 @@ import {
   Search,
   FilterX,
   Eye,
-  Newspaper
+  Newspaper,
+  Home
 } from 'lucide-react'
 
 const noticiasData = [
@@ -188,6 +189,16 @@ export default function NoticiasPage() {
               </h1>
               <p className="noticias-subtitle">Sala de Prensa Gubernamental</p>
             </div>
+
+            <Link 
+              href="/" 
+              className="noticias-home-button"
+              aria-label="Ir al inicio"
+              title="Ir al inicio"
+            >
+              <Home className="w-5 h-5" aria-hidden="true" />
+              <span>Inicio</span>
+            </Link>
 
             <div className="noticias-search-box">
               <Search className="noticias-search-icon" aria-hidden="true" />

@@ -115,11 +115,6 @@ export function Hero() {
 
   return (
     <section className="index-hero-section" style={{ zIndex: (isSearching || suggestions.length > 0) ? 50 : 10 }}>
-      <div className="index-hero-pattern">
-        <div className="index-hero-blob-1" />
-        <div className="index-hero-blob-2" />
-      </div>
-
       <div className="index-hero-container">
         <div className="index-hero-text-center">
           <h1 className="index-hero-title">Bienvenido al Portal Ciudadano de Puebla</h1>
