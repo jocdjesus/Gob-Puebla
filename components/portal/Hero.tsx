@@ -3,6 +3,7 @@
 
 import { useState, useEffect, useRef } from 'react'
 import { Search, Sparkles, X, ArrowRight } from 'lucide-react'
+import { HeroWalkthrough } from '../portal/HeroWalkthrough'
 
 const iaData = [
   {
@@ -43,7 +44,7 @@ export function Hero() {
         } else {
           clearInterval(interval)
         }
-      }, 20) 
+      }, 20)
       return () => clearInterval(interval)
     }
   }, [iaFullText, isSearching])
@@ -72,7 +73,7 @@ export function Hero() {
     if (isSearching) setIsSearching(false)
 
     if (value.trim().length >= 2) {
-      const filtered = iaData.filter(item => 
+      const filtered = iaData.filter(item =>
         item.tag.toLowerCase().includes(value.toLowerCase()) ||
         item.patterns.some(p => value.toLowerCase().includes(p))
       )
@@ -91,17 +92,17 @@ export function Hero() {
 
     setIaFullText(combinedResponse)
     setCurrentCategory(item.category)
-    setCurrentLink(item.source_url) 
+    setCurrentLink(item.source_url)
     setSuggestions([])
     setIsSearching(true)
   }
 
   const handleSearchSubmit = (e: React.FormEvent) => {
-    e.preventDefault() 
+    e.preventDefault()
     if (!searchQuery.trim()) return
 
     const lowerText = searchQuery.toLowerCase()
-    const match = iaData.find(item => 
+    const match = iaData.find(item =>
       item.patterns.some(p => lowerText.includes(p)) ||
       item.tag.toLowerCase().includes(lowerText)
     )
@@ -115,6 +116,7 @@ export function Hero() {
 
   return (
     <section className="index-hero-section" style={{ zIndex: (isSearching || suggestions.length > 0) ? 50 : 10 }}>
+      <HeroWalkthrough />
       <div className="index-hero-container">
         <div className="index-hero-text-center">
           <h1 className="index-hero-title">Bienvenido al Portal Ciudadano de Puebla</h1>
@@ -140,9 +142,9 @@ export function Hero() {
                   <div className="index-suggestions-list">
                     <p className="index-suggestions-label">Trámites sugeridos:</p>
                     {suggestions.map((item, idx) => (
-                      <button 
-                        key={idx} 
-                        type="button" 
+                      <button
+                        key={idx}
+                        type="button"
                         className="index-suggestion-item"
                         onClick={() => activateIA(item)}
                       >
@@ -163,14 +165,14 @@ export function Hero() {
                         <Sparkles className="index-ia-icon-spark" size={16} />
                         <span className="index-ia-badge">Respuesta Oficial IA</span>
                       </div>
-                      <button 
-                        type="button" 
+                      <button
+                        type="button"
                         onClick={(e) => {
                           e.stopPropagation()
                           setIsSearching(false)
                           setIaFullText('')
                           setDisplayedText('')
-                        }} 
+                        }}
                         className="index-ia-close-btn"
                       >
                         <X size={16} />
