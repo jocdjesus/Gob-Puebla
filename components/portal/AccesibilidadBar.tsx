@@ -2,7 +2,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Eye, Type, Sun, Moon, X, Settings } from 'lucide-react'
+import { Eye, Type, Sun, Moon, X, Settings, HelpCircle, RefreshCw } from 'lucide-react'
 
 export function AccesibilidadBar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -44,12 +44,17 @@ export function AccesibilidadBar() {
     setDarkMode(false)
   }
 
+  const restartTutorial = () => {
+    localStorage.removeItem('hero-tour-completed')
+    window.location.reload()
+  }
+
   return (
     <>
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="index-acc-fab"
-        aria-label="Abrir opciones de accesibilidad"
+        aria-label="Abrir configuración"
         aria-expanded={isOpen}
       >
         <Settings className="w-6 h-6" />
@@ -59,14 +64,14 @@ export function AccesibilidadBar() {
         <div 
           className="index-acc-panel"
           role="dialog"
-          aria-label="Opciones de accesibilidad"
+          aria-label="Panel de configuración"
         >
           <div className="index-acc-header">
-            <h2 className="index-acc-title">Accesibilidad</h2>
+            <h2 className="index-acc-title">Configuración</h2>
             <button
               onClick={() => setIsOpen(false)}
               className="index-acc-close"
-              aria-label="Cerrar panel de accesibilidad"
+              aria-label="Cerrar panel"
             >
               <X className="w-5 h-5" />
             </button>
@@ -133,12 +138,32 @@ export function AccesibilidadBar() {
               </button>
             </div>
 
-            <button
-              className="index-acc-reset"
-              onClick={resetSettings}
-            >
-              Restablecer configuración
-            </button>
+            <div style={{ margin: '1rem 0', borderTop: '1px solid var(--index-border)', paddingTop: '1rem' }}>
+              <button
+                className="index-acc-reset"
+                style={{ 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  justifyContent: 'center', 
+                  gap: '0.5rem',
+                  backgroundColor: 'var(--index-primary)',
+                  color: 'white',
+                  marginBottom: '0.5rem'
+                }}
+                onClick={restartTutorial}
+              >
+                <HelpCircle className="w-4 h-4" />
+                Volver a ver tutorial
+              </button>
+              
+              <button
+                className="index-acc-reset"
+                onClick={resetSettings}
+              >
+                <RefreshCw className="w-3 h-3" />
+                Restablecer configuración
+              </button>
+            </div>
           </div>
 
           <div className="index-acc-footer">

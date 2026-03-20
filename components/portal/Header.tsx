@@ -3,7 +3,7 @@
 
 import { useState, useRef } from 'react'
 import Link from 'next/link'
-import { Menu, X, Search, User, ChevronDown, Phone, Mail, Globe } from 'lucide-react'
+import { Menu, X, Search, User, ChevronDown, Phone, Mail, Globe, HelpCircle } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 const navItems = [
@@ -56,6 +56,11 @@ export function Header() {
     }, 150)
   }
 
+  const restartTutorial = () => {
+    localStorage.removeItem('hero-tour-completed')
+    window.location.reload()
+  }
+
   return (
     <header className="index-header-wrapper">
       <div className="index-top-bar">
@@ -71,13 +76,20 @@ export function Header() {
             </a>
           </div>
           <div className="index-utility-nav">
+            <button 
+              onClick={restartTutorial}
+              className="index-top-link" 
+              style={{ background: 'none', border: 'none', cursor: 'pointer' }}
+              aria-label="Ver tutorial guiado"
+            >
+              <HelpCircle className="w-4 h-4" />
+              <span>Tutorial</span>
+            </button>
+            <div style={{ width: '1px', height: '16px', backgroundColor: 'rgba(255,255,255,0.2)', margin: '0 8px' }} />
             <button className="index-top-link" aria-label="Cambiar idioma">
               <Globe className="w-4 h-4" />
               <span>ES</span>
             </button>
-            <Link href="/accesibilidad" className="index-top-link">
-              Accesibilidad
-            </Link>
           </div>
         </div>
       </div>
@@ -151,6 +163,20 @@ export function Header() {
         {mobileMenuOpen && (
           <div className="index-mobile-panel">
             <div className="index-mobile-inner">
+              <div className="flex justify-between items-center mb-4 p-2">
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  className="flex items-center gap-2"
+                  onClick={restartTutorial}
+                >
+                  <HelpCircle className="w-4 h-4" />
+                  <span>Tutorial</span>
+                </Button>
+                <Button variant="ghost" size="sm" onClick={() => setMobileMenuOpen(false)}>
+                  Cerrar
+                </Button>
+              </div>
               {navItems.map((item) => (
                 <div key={item.label}>
                   <Link
