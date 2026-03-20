@@ -1,185 +1,121 @@
-//components/portal/ServiciosDestacados.tsx
 'use client'
 
 import { 
   FileText, 
   Car, 
-  Home, 
   CreditCard, 
-  Calendar, 
-  UserCheck,
-  Briefcase,
   GraduationCap,
-  HeartPulse,
-  Scale,
-  Building,
-  TreePine,
-  ArrowRight
+  ArrowRight,
+  ClipboardCheck,
+  ShieldCheck,
+  RefreshCcw,
+  BadgePercent,
+  UserCog,
+  LucideIcon
 } from 'lucide-react'
 
-const servicios = [
+const serviciosData = [
   {
-    id: 1,
-    icon: FileText,
-    title: 'Actas del Registro Civil',
-    description: 'Solicita actas de nacimiento, matrimonio y defunción en línea.',
-    href: 'https://ventanilladigital.puebla.gob.mx/ventanilla/busqueda/actas%20',
-    category: 'Documentos',
-    popular: true,
+    "id": "1602",
+    "nombre": "Pago de Tenencia y Control Vehicular",
+    "enlace": "https://ventanilla.puebla.gob.mx/web/inicioWebc.do?opcion=noreg&entidad=&redirige=d2ViL2ZpY2hhQXN1bnRvLmRvP29wY2lvbj0wJmFzYXNfaWRlX2FzdT0xNjAyJnJ1dGE9L3dlYi9hc3VudG9zTWFzVXN1YWxlcy5kbz9vcGNpb249MCFwZXJpb2RvPTA="
   },
   {
-    id: 2,
-    icon: Car,
-    title: 'Licencias y Vehículos',
-    description: 'Trámites de licencia de conducir, tenencia y placas vehiculares.',
-    href: 'https://ventanilladigital.puebla.gob.mx/ventanilla/busqueda/licencias%20de%20conducir',
-    category: 'Movilidad',
-    popular: true,
+    "id": "1898",
+    "nombre": "Preinscripción de Educación Básica y Media Superior",
+    "enlace": "https://ventanilla.puebla.gob.mx/web/inicioWebc.do?opcion=noreg&entidad=&redirige=d2ViL2ZpY2hhQXN1bnRvLmRvP29wY2lvbj0wJmFzYXNfaWRlX2FzdT0xODk4JnJ1dGE9L3dlYi9hc3VudG9zTWFzVXN1YWxlcy5kbz9vcGNpb249MCFwZXJpb2RvPTA="
   },
   {
-    id: 3,
-    icon: Home,
-    title: 'Predial y Catastro',
-    description: 'Paga tu predial, consulta avalúos y trámites de propiedad.',
-    href: 'https://ventanilladigital.puebla.gob.mx/ventanilla/busqueda/predial',
-    category: 'Impuestos',
-    popular: true,
+    "id": "1697",
+    "nombre": "Actas certificadas en línea",
+    "enlace": "https://ventanilla.puebla.gob.mx/web/inicioWebc.do?opcion=noreg&entidad=&redirige=d2ViL2ZpY2hhQXN1bnRvLmRvP29wY2lvbj0wJmFzYXNfaWRlX2FzdT0xNjk3JnJ1dGE9L3dlYi9hc3VudG9zTWFzVXN1YWxlcy5kbz9vcGNpb249MCFwZXJpb2RvPTA="
   },
   {
-    id: 4,
-    icon: CreditCard,
-    title: 'Pagos en Línea',
-    description: 'Realiza pagos de servicios gubernamentales de forma segura.',
-    href: '/pagos',
-    category: 'Finanzas',
-    popular: false,
+    "id": "1787",
+    "nombre": "Constancia de no inhabilitado para el desempeño de un empleo, cargo o comisión en el servicio público",
+    "enlace": "https://ventanilla.puebla.gob.mx/web/inicioWebc.do?opcion=noreg&entidad=&redirige=d2ViL2ZpY2hhQXN1bnRvLmRvP29wY2lvbj0wJmFzYXNfaWRlX2FzdT0xNzg3JnJ1dGE9L3dlYi9hc3VudG9zTWFzVXN1YWxlcy5kbz9vcGNpb249MCFwZXJpb2RvPTA="
   },
   {
-    id: 5,
-    icon: Calendar,
-    title: 'Agendar Cita',
-    description: 'Programa tu cita para trámites presenciales en oficinas.',
-    href: 'https://citasenlinea.puebla.gob.mx/',
-    category: 'Servicios',
-    popular: true,
+    "id": "1949",
+    "nombre": "Expedición de Licencia para Conducir de automovilista, motociclista o chofer particular",
+    "enlace": "https://ventanilla.puebla.gob.mx/web/inicioWebc.do?opcion=noreg&entidad=&redirige=d2ViL2ZpY2hhQXN1bnRvLmRvP29wY2lvbj0wJmFzYXNfaWRlX2FzdT0xOTQ5JnJ1dGE9L3dlYi9hc3VudG9zTWFzVXN1YWxlcy5kbz9vcGNpb249MCFwZXJpb2RvPTA="
   },
   {
-    id: 6,
-    icon: UserCheck,
-    title: 'Constancias y Certificados',
-    description: 'Obtén constancias de no antecedentes penales y más.',
-    href: '#',
-    category: 'Documentos',
-    popular: false,
+    "id": "2348",
+    "nombre": "Constancia de no antecedentes penales presencial",
+    "enlace": "https://ventanilla.puebla.gob.mx/web/inicioWebc.do?opcion=noreg&entidad=&redirige=d2ViL2ZpY2hhQXN1bnRvLmRvP29wY2lvbj0wJmFzYXNfaWRlX2FzdT0yMzQ4JnJ1dGE9L3dlYi9hc3VudG9zTWFzVXN1YWxlcy5kbz9vcGNpb249MCFwZXJpb2RvPTA="
   },
   {
-    id: 7,
-    icon: Briefcase,
-    title: 'Empleo y Capacitación',
-    description: 'Bolsa de trabajo, capacitación laboral y apoyo al empleo.',
-    href: '#',
-    category: 'Empleo',
-    popular: false,
+    "id": "1591",
+    "nombre": "Alta de vehículos nuevos de servicio particular",
+    "enlace": "https://ventanilla.puebla.gob.mx/web/inicioWebc.do?opcion=noreg&entidad=&redirige=d2ViL2ZpY2hhQXN1bnRvLmRvP29wY2lvbj0wJmFzYXNfaWRlX2FzdT0xNTkxJnJ1dGE9L3dlYi9hc3VudG9zTWFzVXN1YWxlcy5kbz9vcGNpb249MCFwZXJpb2RvPTA="
   },
   {
-    id: 8,
-    icon: GraduationCap,
-    title: 'Becas y Educación',
-    description: 'Solicita becas, inscripciones y servicios educativos.',
-    href: 'https://ventanilladigital.puebla.gob.mx/ventanilla/busqueda/becas',
-    category: 'Educación',
-    popular: true,
+    "id": "1986",
+    "nombre": "Renovación de licencia para conducir de automovilista, motociclista o chofer particular",
+    "enlace": "https://ventanilla.puebla.gob.mx/web/inicioWebc.do?opcion=noreg&entidad=&redirige=d2ViL2ZpY2hhQXN1bnRvLmRvP29wY2lvbj0wJmFzYXNfaWRlX2FzdT0xOTg2JnJ1dGE9L3dlYi9hc3VudG9zTWFzVXN1YWxlcy5kbz9vcGNpb249MCFwZXJpb2RvPTA="
   },
   {
-    id: 9,
-    icon: HeartPulse,
-    title: 'Servicios de Salud',
-    description: 'Citas médicas, vacunación y programas de salud pública.',
-    href: '#',
-    category: 'Salud',
-    popular: false,
+    "id": "2057",
+    "nombre": "Apoyo del 100% en el pago de la Tenencia",
+    "enlace": "https://ventanilla.puebla.gob.mx/web/inicioWebc.do?opcion=noreg&entidad=&redirige=d2ViL2ZpY2hhQXN1bnRvLmRvP29wY2lvbj0wJmFzYXNfaWRlX2FzdT0yMDU3JnJ1dGE9L3dlYi9hc3VudG9zTWFzVXN1YWxlcy5kbz9vcGNpb249MCFwZXJpb2RvPTA="
   },
   {
-    id: 10,
-    icon: Scale,
-    title: 'Asesoría Jurídica',
-    description: 'Orientación legal gratuita y servicios de justicia.',
-    href: '#',
-    category: 'Legal',
-    popular: false,
-  },
-  {
-    id: 11,
-    icon: Building,
-    title: 'Permisos de Construcción',
-    description: 'Licencias, permisos y regulación de obras y construcciones.',
-    href: '#',
-    category: 'Construcción',
-    popular: false,
-  },
-  {
-    id: 12,
-    icon: TreePine,
-    title: 'Medio Ambiente',
-    description: 'Permisos ambientales, reforestación y cuidado ecológico.',
-    href: '#',
-    category: 'Ambiente',
-    popular: false,
-  },
+    "id": "1595",
+    "nombre": "Cambio de propietario",
+    "enlace": "https://ventanilla.puebla.gob.mx/web/inicioWebc.do?opcion=noreg&entidad=&redirige=d2ViL2ZpY2hhQXN1bnRvLmRvP29wY2lvbj0wJmFzYXNfaWRlX2FzdT0xNTk1JnJ1dGE9L3dlYi9hc3VudG9zTWFzVXN1YWxlcy5kbz9vcGNpb249MCFwZXJpb2RvPTA="
+  }
 ]
 
-export function ServiciosDestacados() {
-  const serviciosPopulares = servicios.filter(s => s.popular)
-  const otrosServicios = servicios.filter(s => !s.popular)
+const iconMap: Record<string, LucideIcon> = {
+  "1602": CreditCard,      // Pago Tenencia
+  "1898": GraduationCap,   // Preinscripción
+  "1697": FileText,        // Actas
+  "1787": ClipboardCheck,  // No inhabilitado
+  "1949": Car,             // Licencia
+  "2348": ShieldCheck,     // Antecedentes penales
+  "1591": Car,             // Alta vehículo
+  "1986": RefreshCcw,      // Renovación licencia
+  "2057": BadgePercent,    // Apoyo 100%
+  "1595": UserCog,         // Cambio propietario
+}
 
+export function ServiciosDestacados() {
   return (
     <section className="index-servicios-section" aria-labelledby="servicios-title">
       <div className="index-servicios-container">
         <div className="index-servicios-header">
           <h2 id="servicios-title" className="index-servicios-title">
-            Trámites y Servicios Destacados
+            Los más Destacados
           </h2>
           <p className="index-servicios-subtitle">
-            Accede a los servicios más solicitados por los ciudadanos poblanos de manera rápida y segura.
+            Accede directamente a los trámites con mayor demanda en el Estado de Puebla.
           </p>
         </div>
 
         <div className="index-popular-grid">
-          {serviciosPopulares.map((servicio) => {
-            const Icon = servicio.icon
+          {serviciosData.map((servicio) => {
+            const Icon = iconMap[servicio.id] || FileText
             return (
-              <a key={servicio.id} href={servicio.href} className="index-popular-card">
+              <a 
+                key={servicio.id} 
+                href={servicio.enlace} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="index-popular-card"
+              >
                 <div className="index-card-header">
                   <div className="index-card-icon-box">
                     <Icon className="index-card-icon" />
                   </div>
-                  <div>
-                    <span className="index-card-badge">{servicio.category}</span>
-                    <h3 className="index-card-title">{servicio.title}</h3>
-                    <p className="index-card-desc">{servicio.description}</p>
+                  <div className="index-card-content">
+                    <h3 className="index-card-title">{servicio.nombre}</h3>
                   </div>
                 </div>
                 <ArrowRight className="index-card-arrow" />
               </a>
             )
           })}
-        </div>
-
-        <div className="index-more-services-panel">
-          <h3 className="index-more-title">Más Servicios Disponibles</h3>
-          <div className="index-more-grid">
-            {otrosServicios.map((servicio) => {
-              const Icon = servicio.icon
-              return (
-                <a key={servicio.id} href={servicio.href} className="index-more-item">
-                  <div className="index-more-icon-box">
-                    <Icon className="index-more-icon" />
-                  </div>
-                  <span className="index-more-label">{servicio.title}</span>
-                </a>
-              )
-            })}
-          </div>
         </div>
 
         <div className="index-cta-container">
