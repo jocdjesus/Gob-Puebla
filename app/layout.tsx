@@ -4,6 +4,8 @@ import { Inter, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 import '../styles/index.css'
+
+import '../styles/apoyo-ciudadano.css'
 import '../styles/noticias.css'
 import '../styles/noticias-slug.css'
 
