@@ -14,7 +14,9 @@ import {
   ArrowRight,
   CheckCircle2,
   Clock,
-  Users
+  Users,
+  HeartHandshake,
+  PlusCircle
 } from 'lucide-react'
 
 const categorias = [
@@ -61,6 +63,22 @@ export function ReportesCiudadanos() {
                   </div>
                 )
               })}
+            </div>
+
+            <div className="index-rep-support-banner">
+              <div className="index-rep-support-content">
+                <div className="index-rep-support-icon-wrapper">
+                  <HeartHandshake className="w-6 h-6 text-rose-600" />
+                </div>
+                <div>
+                  <h4 className="index-rep-support-title">Red de Apoyo Ciudadano</h4>
+                  <p className="index-rep-support-text">Reporte de personas desaparecidas, ayuda comunitaria urgente, justicia para quienes no tienen voz y acción inmediata donde otros no llegan.</p>
+                </div>
+              </div>
+              <a href="/apoyo-ciudadano/nueva-solicitud" className="index-btn-support">
+                <PlusCircle className="w-4 h-4" style={{ marginRight: '0.5rem' }} />
+                Crear Solicitud
+              </a>
             </div>
 
             <div className="index-rep-actions">
